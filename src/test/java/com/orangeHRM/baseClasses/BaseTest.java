@@ -1,8 +1,8 @@
 package com.orangeHRM.baseClasses;
 
 import io.github.bonigarcia.wdm.WebDriverManager;
-import org.apache.logging.log4j.LogManager;
-import org.apache.logging.log4j.Logger;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.testng.annotations.AfterMethod;
@@ -17,7 +17,7 @@ public class BaseTest {
 
     @BeforeMethod
     public void setUp() {
-        logger = LogManager.getLogger(this.getClass());
+        logger = LoggerFactory.getLogger(this.getClass());
         WebDriverManager.chromedriver().setup();
         driver = new ChromeDriver();
         driver.manage().window().maximize();

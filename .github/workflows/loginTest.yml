@@ -1,4 +1,4 @@
-name: Run Selenium Tests
+name: Run Selenium Tests Exercise
 
 on:
   push:
@@ -22,5 +22,30 @@ jobs:
           distribution: 'temurin'
           java-version: '21'
 
+      - name: Cache Maven packages
+        uses: actions/cache@v3
+        with:
+          path: ~/.m2/repository
+          key: ${{ runner.os }}-maven-${{ hashFiles('**/pom.xml') }}
+          restore-keys: |
+            ${{ runner.os }}-maven-
+
+      - name: Install dependencies
+        run: mvn install
+
       - name: Run tests
-        run: mvn clean test
+        run: mvn test
+
+      - name: Archive test results
+        if: always()
+        uses: actions/upload-artifact@v3
+        with:
+          name: test-results
+          path: target/surefire-reports
+
+      - name: Archive logs
+        if: always()
+        uses: actions/upload-artifact@v3
+        with:
+          name: logs
+          path: logs/
