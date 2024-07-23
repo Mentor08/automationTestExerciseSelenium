@@ -37,10 +37,8 @@ jobs:
       - name: Set up Maven
         uses: stCarolas/setup-maven@v5
 
-        with:
-          distribution: 'adopt'
-          java-version: ${{ matrix.java-version }}
-          cache: 'maven'
+      - name: Install dependencies
+        run: mvn install -DskipTests
 
       - name: Run tests
         run: mvn clean test
