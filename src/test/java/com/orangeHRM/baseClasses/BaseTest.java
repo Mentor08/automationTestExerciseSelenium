@@ -23,7 +23,7 @@ public class BaseTest {
         driver.manage().window().maximize();
         logger.info("Screen maximization completed");
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(3000));
-        logger.info("Implement waiting mechanism to handle asynchronous tasks");
+        logger.info("Implemented waiting mechanism to handle asynchronous tasks");
         logger.info("WebDriver setup completed");
     }
 
