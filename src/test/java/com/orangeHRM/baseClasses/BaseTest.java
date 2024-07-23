@@ -1,6 +1,7 @@
 package com.orangeHRM.baseClasses;
 
 //import io.github.bonigarcia.wdm.WebDriverManager;
+import io.github.bonigarcia.wdm.WebDriverManager;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.testng.annotations.AfterMethod;
@@ -19,12 +20,14 @@ public class BaseTest {
     public void setUp() {
 
         // Set the path to the ChromeDriver executable using user.dir
-        String driverPath = System.getProperty("user.dir") + "/src/chromedriver/chromedriver.exe";
+        //String driverPath = System.getProperty("user.dir") + "/src/chromedriver/chromedriver.exe";
 
         logger.info("Setting up WebDriver");
 
         // Set the path to the ChromeDriver executable
-        System.setProperty("webdriver.chrome.driver", driverPath);
+        //System.setProperty("webdriver.chrome.driver", driverPath);
+
+        WebDriverManager.chromedriver().setup();
         driver = new ChromeDriver();
 
         driver.manage().window().maximize();
