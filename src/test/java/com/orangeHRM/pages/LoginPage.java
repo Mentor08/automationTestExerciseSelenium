@@ -30,14 +30,17 @@ public class LoginPage extends BasePage {
     }
 
     public void setUsername(String username) {
+        logger.info("Entering username: {}", username);
         usernameField.sendKeys(username);
     }
 
     public void setPassword(String password) {
+        logger.info("Entering password: {}", password);
         passwordField.sendKeys(password);
     }
 
     public void clickLogin() {
+        logger.info("Clicking on the login button");
         loginButton.click();
     }
 
