@@ -8,7 +8,6 @@ public class LoginTest extends BaseTest {
     @Test
     public void validateSuccessfulLogin(){
         driver.get("https://opensource-demo.orangehrmlive.com/web/index.php/auth/login");
-        logger.info("Navigated to login page.");
 
         LoginPage loginPage = new LoginPage(driver);
         loginPage.setUsername("Admin");
@@ -17,13 +16,11 @@ public class LoginTest extends BaseTest {
 
         // Add assertion to verify login success
         loginPage.validateSuccessfulLogin();
-        logger.info("Login test completed.");
     }
 
     @Test
     public void validateFailedLogin(){
         driver.get("https://opensource-demo.orangehrmlive.com/web/index.php/auth/login");
-        logger.info("Navigated to login page.");
 
         LoginPage loginPage = new LoginPage(driver);
         loginPage.setUsername("Admin");
@@ -34,13 +31,11 @@ public class LoginTest extends BaseTest {
 
         // Add assertion to failed login
         loginPage.validateLoginTitle();
-        logger.info("Login test completed.");
     }
 
     @Test
     public void validateFailedLoginWithErrorMessage(){
         driver.get("https://opensource-demo.orangehrmlive.com/web/index.php/auth/login");
-        logger.info("Navigated to login page.");
 
         LoginPage loginPage = new LoginPage(driver);
         // invalid username and password
@@ -50,6 +45,5 @@ public class LoginTest extends BaseTest {
 
         // Add assertion to failed login
         loginPage.validateFailedLogin();
-        logger.info("Login test completed.");
     }
 }
